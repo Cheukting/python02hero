@@ -1,14 +1,15 @@
+import pytest # isort:skip
+import math
 import re
-import math # noqa
+
 
 class Basket:
-
     def __init__(self, database, name, address, email):
-        self.__id = len(database.keys())+1
+        self.__id = len(database.keys()) + 1
         self.__name = name
         self.__address = address
         self.email = email
-        #self.__email = email
+        # self.__email = email
         self.__content = []
         self.add_multi_items = self.add_items
         database[self.__id] = self
@@ -72,12 +73,13 @@ class Basket:
         for item in args:
             self._add_item(item)
 
-database = {}
 
+database = {}
+# fmt:off
 my_basket = Basket(database, "Cheuk", "123 Williton Street, London, UK", "my_email@gmail.com")
+# fmt:on
 my_basket.add_items("toilet papers")
 my_basket.content = ["coffee beans", "toiler papers"]
 the_content = my_basket.content
 print("My basket: ", my_basket.content)
-
-#print(database[1].address)
+# print(database[1].address)
